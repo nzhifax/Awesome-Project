@@ -15,6 +15,7 @@ import {
   Text,
   useColorScheme,
   View,
+  Image,
 } from 'react-native';
 
 import {
@@ -37,18 +38,13 @@ function Section({children, title}: SectionProps): React.JSX.Element {
         style={[
           styles.sectionTitle,
           {
-            color: isDarkMode ? Colors.white : Colors.black,
+            color: 'black',
           },
         ]}>
         {title}
       </Text>
       <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
+        style={{color: 'chocolate'}}>
         {children}
       </Text>
     </View>
@@ -76,19 +72,46 @@ function App(): React.JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
+          <Section title="Nama">
+           Nazhifa Khoirunnisa
           </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
+          <Section title="NIM">
+           22/505986/SV/22025
           </Section>
-          <Section title="Debug">
-            <DebugInstructions />
+          <Section title="Kelas">
+            PGPBL-B
           </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
+
+           {/* Link Sections with Icons
+           <View style={styles.linkContainer}>
+            <Image
+              source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/150px-Instagram_logo_2022.svg.png' }}
+              style={{ width: 24, height: 24 }}
+            />
+            <Text style={styles.sectionDescription}>
+              Connect my profile in LinkedIn
+            </Text>
+          </View>
+          <View style={styles.linkContainer}>
+            <Image
+              source={{ uri: 'https://blog.waalaxy.com/wp-content/uploads/2021/01/3-1.png.webp' }}
+              style={{ width: 24, height: 24 }}
+            />
+            <Text style={styles.sectionDescription}>
+              mailto:khosyinuraliya@mail.ugm.ac.id
+            </Text>
+          </View>
+          <View style={styles.linkContainer}>
+            <Image
+              source={{ uri: 'https://blog.waalaxy.com/wp-content/uploads/2021/01/3-1.png.webp' }}
+              style={{ width: 24, height: 24 }}
+            />
+            <Text style={styles.sectionDescription}>
+              Click this sentence to follow my Instagram
+            </Text>
+          </View> */}
+
+
           <LearnMoreLinks />
         </View>
       </ScrollView>
@@ -109,9 +132,32 @@ const styles = StyleSheet.create({
     marginTop: 8,
     fontSize: 18,
     fontWeight: '400',
+    color: 'blue',
   },
   highlight: {
     fontWeight: '700',
+  },
+  headerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 16,
+  },
+  headerTitle: {
+    fontSize: 24,
+    fontWeight: '700',
+    color: 'black',
+    marginLeft: 8,
+  },
+  linkContainer: { // Tambahkan ini untuk gaya link dengan ikon
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 16,
+    paddingHorizontal: 24,
+  },
+  icon: { // Gaya untuk ikon
+    width: 24,
+    height: 24,
+    marginRight: 8,
   },
 });
 
