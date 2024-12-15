@@ -20,17 +20,9 @@ Produk ini dibuat dengan tujuan untuk:
 ## 3. Komponen yang Digunakan
 
 Berikut adalah komponen utama yang digunakan dalam pengembangan Lokatani:
-- **Frontend**: 
   - React Native: Untuk membangun aplikasi mobile yang dapat berjalan di platform Android dan iOS.
-  - Redux: Untuk mengelola state aplikasi secara global.
+  - FontAwesome: Untuk mengambil ikon
   - React Navigation: Untuk menangani navigasi antar halaman dalam aplikasi.
-  - Axios: Untuk menyusun HTTP request ke server dan berinteraksi dengan API.
-  
-- **Backend**:
-  - Node.js: Untuk pengelolaan server dan backend API.
-  - Express.js: Sebagai framework backend untuk membangun API yang ringan dan cepat.
-  - MongoDB: Sebagai basis data untuk menyimpan data produk, transaksi, dan informasi pengguna.
-  - Firebase: Untuk autentikasi pengguna dan pemberitahuan real-time.
 
 - **Sumber Data**:
   - Data produk pertanian yang diinput oleh petani.
