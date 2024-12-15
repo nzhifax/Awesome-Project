@@ -4,40 +4,31 @@ import { FlatList, Text, View, TouchableOpacity, Linking, StyleSheet } from 'rea
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faMars, faUserGraduate, faVenus } from '@fortawesome/free-solid-svg-icons';
 
-
-
 const Mahasiswa = () => {
- return (
-    <FlatList
-    data={Datamahasiswa}
-    renderItem={({ item }) => (
-      <TouchableOpacity
-        onPress={() =>
-          Linking.openURL('google.navigation:q=' + item.latitude + ',' + item.longitude)} >
-        <View style={styles.card}>
-          <View style= {styles.avatar}>
-            <FontAwesomeIcon icon={faUserGraduate} size={50} color={ item.gender == 'male' ? 'lightblue' : 'pink'} />
-          </View>
-          <View>
-            <Text style= {styles.cardtitle}>{item.first_name} {item.last_name}</Text>
-
-            <FontAwesomeIcon
-            icon={item.gender == 'male' ? faMars : faVenus}
-            color={ item.gender == 'male' ? 'lightblue' : 'pink'}
-            /> 
-            
-            <Text>{item.class}</Text>
-            <Text>{item.email}</Text>
-            <Text>{item.latitude}, {item.longitude}</Text>
-          </View>
-        </View>
-      </TouchableOpacity>
-    )}
-  />
-  
- )
+    return (
+        <FlatList
+            data={Datamahasiswa}
+            renderItem={({ item }) => (
+                <TouchableOpacity
+                onPress={() =>
+                    Linking.openURL('google.navigation:q=' + item.latitude + ',' + item.longitude)} >
+                  <View style={styles.card}>
+                    <View style={styles.avatar}>
+                      <FontAwesomeIcon icon={faUserGraduate} size={50} color={ item.gender === 'male' ? '#D2E0FB' : '#FFE6E6'} />
+                    </View>
+                    <View>
+                      <Text style={styles.cardtitle}>{item.first_name} {item.last_name}</Text>
+                      <FontAwesomeIcon icon={item.gender === 'male' ? faMars : faVenus} 
+                      color={ item.gender === 'male' ? '#D2E0FB' : '#FFE6E6'} size={14}/>
+                      <Text>{item.class}</Text>
+                      <Text>{item.latitude}, {item.longitude}</Text>
+                    </View>
+                  </View>
+                </TouchableOpacity>
+            )}
+        />
+    )
 }
-
 export default Mahasiswa
 
 const styles = StyleSheet.create({
@@ -51,10 +42,10 @@ const styles = StyleSheet.create({
     },
     avatar: {
       borderRadius: 100,
-      width: 80,
+      width: 70,
     },
     cardtitle: {
-      fontSize: 15,
+      fontSize: 16,
       fontWeight: 'bold',
     },
     card: {
@@ -74,4 +65,3 @@ const styles = StyleSheet.create({
       marginVertical: 7
     },
    })
-   

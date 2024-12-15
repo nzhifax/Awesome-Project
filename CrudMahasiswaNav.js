@@ -1,34 +1,32 @@
 import * as React from 'react';
-import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Profil from './App';
-import Createdata from './Createdata';
-import DataMahasiswa from './Listdata';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faUser } from '@fortawesome/free-regular-svg-icons';
-import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
-import { WebView } from 'react-native-webview';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
-
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faHouse, faCarrot, faPenToSquare, faCartShopping, faUser } from '@fortawesome/free-solid-svg-icons';
+import Home from './Home';
+import Listdata from './Listdata';
+import Editdata from './Editdata';
+import Order from './Order';
+import Profile from './Profile';
 
 function HomeScreen() {
-  return (
-  <Createdata/>
-  );
+  return <Home />;
 }
 
-function DataMahasiswaScreen() {
-  return (
-    <DataMahasiswa/>
-  );
+function SettingsScreen() {
+  return <Listdata />;
 }
 
-function WebScreen() {
-  return (
-    <WebView
-    source={{ uri: 'https://github.com/Alyasxx' }}  />
-  );
+function EditScreen() {
+  return <Editdata />;
+}
+
+function OrderScreen() {
+  return <Order />;
+}
+
+function ProfileScreen() {
+  return <Profile />;
 }
 
 const Tab = createBottomTabNavigator();
@@ -36,21 +34,51 @@ const Tab = createBottomTabNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Profile" component={HomeScreen} 
-        options={{
-          headerShown: false,
-          tabBarIcon: ({ color }) => ( 
-          <FontAwesomeIcon icon={faUser} color={color} size={20}/>)}}/>
-        <Tab.Screen name="Data Mahasiswa" component={DataMahasiswaScreen}
-        options={{
-          tabBarIcon: ({ color }) => ( 
-          <FontAwesomeIcon icon={faGraduationCap} color={color} size={20}/>)}}/>
-        <Tab.Screen name="GitHub" component={WebScreen}
-        options={{ headerShown: false,
-
-          tabBarIcon: ({ color }) => ( 
-          <FontAwesomeIcon icon={faGithub} color={color} size={20}/>)}}/>
+      <Tab.Navigator
+        screenOptions={{
+          tabBarActiveTintColor: 'green', // Ganti warna tab yang aktif menjadi hijau
+          tabBarInactiveTintColor: 'gray', // Warna tab yang tidak aktif (opsional)
+        }}
+      >
+        <Tab.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{
+            headerShown: false,
+            tabBarIcon: ({ color }) => <FontAwesomeIcon icon={faHouse} color={color} size={20} />,
+          }}
+        />
+        <Tab.Screen
+          name="Produk Saya"
+          component={SettingsScreen}
+          options={{
+            tabBarIcon: ({ color }) => <FontAwesomeIcon icon={faCarrot} color={color} size={20} />,
+          }}
+        />
+        <Tab.Screen
+          name="Edit"
+          component={EditScreen}
+          options={{
+            headerShown: false,
+            tabBarIcon: ({ color }) => <FontAwesomeIcon icon={faPenToSquare} color={color} size={20} />,
+          }}
+        />
+        <Tab.Screen
+          name="Pesanan"
+          component={OrderScreen}
+          options={{
+            headerShown: false,
+            tabBarIcon: ({ color }) => <FontAwesomeIcon icon={faCartShopping} color={color} size={20} />,
+          }}
+        />
+        <Tab.Screen
+          name="Profil"
+          component={ProfileScreen}
+          options={{
+            headerShown: false,
+            tabBarIcon: ({ color }) => <FontAwesomeIcon icon={faUser} color={color} size={20} />,
+          }}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );
